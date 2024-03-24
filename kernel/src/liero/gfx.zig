@@ -112,40 +112,40 @@ pub fn clip(dim: *@Vector(2, u32), x: *i32, y: *i32, todim: @Vector(2, u32)) @Ve
     
     var src: @Vector(2, u32) = .{ 0, 0 };
     if (y.* < 0) {
-		if (y.* < -@as(i32, @intCast(dim[1]))) {
-			dim[1] = 0;
-		} else {
-			src[1] = @intCast(-y.*);
-			dim[1] +%= @bitCast(y.*);
-			y.* = 0;
-		}
-	}
-	
-	if (y.* + @as(i32, @intCast(dim[1])) > @as(i32, @intCast(todim[1]))) {
-		if (y.* >= @as(i32, @intCast(todim[1]))) {
-			dim[1] = 0;
-		} else {
-			dim[1] = todim[1] -% @as(u32, @bitCast(y.*));
-		}
-	}
+        if (y.* < -@as(i32, @intCast(dim[1]))) {
+            dim[1] = 0;
+        } else {
+            src[1] = @intCast(-y.*);
+            dim[1] +%= @bitCast(y.*);
+            y.* = 0;
+        }
+    }
+    
+    if (y.* + @as(i32, @intCast(dim[1])) > @as(i32, @intCast(todim[1]))) {
+        if (y.* >= @as(i32, @intCast(todim[1]))) {
+            dim[1] = 0;
+        } else {
+            dim[1] = todim[1] -% @as(u32, @bitCast(y.*));
+        }
+    }
 
-	if (x.* < 0) {
-		if (x.* < -@as(i32, @intCast(dim[0]))) {
-			dim[0] = 0;
-		} else {
-			src[0] = @intCast(-x.*);
-			dim[0] +%= @bitCast(x.*);
-			x.* = 0;
-		}
-	}
+    if (x.* < 0) {
+        if (x.* < -@as(i32, @intCast(dim[0]))) {
+            dim[0] = 0;
+        } else {
+            src[0] = @intCast(-x.*);
+            dim[0] +%= @bitCast(x.*);
+            x.* = 0;
+        }
+    }
 
-	if (x.* + @as(i32, @intCast(dim[0])) > @as(i32, @intCast(todim[0]))) {
-		if (x.* >= @as(i32, @intCast(todim[0]))) {
-			dim[0] = 0;
-		} else {
-			dim[0] = todim[0] -% @as(u32, @bitCast(x.*));
-		}
-	}
+    if (x.* + @as(i32, @intCast(dim[0])) > @as(i32, @intCast(todim[0]))) {
+        if (x.* >= @as(i32, @intCast(todim[0]))) {
+            dim[0] = 0;
+        } else {
+            dim[0] = todim[0] -% @as(u32, @bitCast(x.*));
+        }
+    }
 
     return src;
 }

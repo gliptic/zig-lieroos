@@ -459,10 +459,10 @@ fn br() void {
 // Assumes interrupts are off
 fn setPitCount(count: u32) void {
 
-	// Set low byte
-	outportb(0x40, @intCast(count & 0xFF));		// Low byte
-	outportb(0x40, @intCast((count & 0xFF00) >> 8));	// High byte
-	return;
+    // Set low byte
+    outportb(0x40, @intCast(count & 0xFF));		// Low byte
+    outportb(0x40, @intCast((count & 0xFF00) >> 8));	// High byte
+    return;
 }
 
 inline fn hlt() void {
