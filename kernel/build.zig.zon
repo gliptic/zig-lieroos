@@ -1,0 +1,15 @@
+.{
+    .name = "lieroos",
+    .version = "0.1.0",
+    .paths = .{"."},
+    .dependencies = .{
+        .limine = .{
+            .url = "https://github.com/limine-bootloader/limine-zig/archive/c94d35f1f116e9e8a7943f30712901760c3d7d96.tar.gz",
+            .hash = "1220889cec612d653c31a4063d20daa9ec382ac23f76e9cc60a778b0ad17377bafa1",
+        },
+        .nasm = .{
+            .url = "https://github.com/andrewrk/nasm/archive/cfccd3eaba0526e360795494a0e4bc39acc4d68c.tar.gz",
+            .hash = "1220f9bd108d1e7097b27d388a7a65effd503598df61e34a2af02be00b22af567fc7",
+        },
+    },
+}

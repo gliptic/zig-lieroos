@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "make && qemu-system-x86_64 -smp cores=2 -M q35 -m 2G -cdrom lieroos.iso -boot d", //  -s -S
+            "problemMatcher": {
+                "base": "$zig",
+                "fileLocation": ["relative", "${workspaceRoot}/kernel"]
+            },
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "run bochs",
+            "type": "shell",
+            "command": "make && bochs -q -f ./bochs/bochsrc.bxrc",
+            "problemMatcher": {
+                "base": "$zig",
+                "fileLocation": ["relative", "${workspaceRoot}/kernel"]
+            },
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": {
+                "base": "$zig",
+                "fileLocation": ["relative", "${workspaceRoot}/kernel"]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ]
+}
